@@ -53,6 +53,13 @@ test("integridad: código repetido, cantidad inválida, tipo inválido y product
   await assert.rejects(() => movements.create({ product_id: 9999, type: "IN", quantity: 1 }), /FOREIGN KEY/);
 });
 
+test("no se puede crear un producto sin código o sin nombre", async () => {
+  const { products } = await setup();
+  await assert.rejects(() => products.create("", "Sin código"), /obligatorios/);
+  await assert.rejects(() => products.create("H-800", "   "), /obligatorios/);
+  assert.equal((await products.list()).length, 0);
+});
+
 test("no se puede borrar un producto con movimientos (ON DELETE RESTRICT)", async () => {
   const { products, movements } = await setup();
   const p = await products.create("D-400", "Arandela");

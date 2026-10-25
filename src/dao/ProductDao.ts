@@ -6,6 +6,7 @@ export class ProductDao {
 
   // CREATE
   async create(code: string, name: string): Promise<Product> {
+    if (!code.trim() || !name.trim()) throw new Error("El código y el nombre del producto son obligatorios");
     const r = await this.db.run("INSERT INTO products (code, name) VALUES (?, ?)", [code.trim(), name.trim()]);
     return { id: r.lastInsertId, code: code.trim(), name: name.trim() };
   }

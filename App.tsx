@@ -33,6 +33,7 @@ export default function App() {
 
   async function saveProduct() {
     if (!daos) return;
+    if (!code.trim() || !name.trim()) { setMsg("Escribe el código y el nombre del producto"); return; }
     try {
       const p = (await daos.products.getByCode(code)) ?? (await daos.products.create(code, name));
       setProduct(p); await refresh(p); setMsg(`Producto ${p.code} listo`);
