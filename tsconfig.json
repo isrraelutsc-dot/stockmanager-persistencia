@@ -9,7 +9,15 @@
     "noEmit": true,
     "allowImportingTsExtensions": true,
     "esModuleInterop": true,
-    "types": ["node"]
+    "types": [
+      "node"
+    ]
   },
-  "include": ["App.tsx", "src", "test", "scripts"]
+  "include": [
+    "App.tsx",
+    "src",
+    "test",
+    "scripts"
+  ],
+  "extends": "expo/tsconfig.base"
 }
