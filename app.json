@@ -1,1 +1,13 @@
-{ "expo": { "name": "StockManager", "slug": "stockmanager", "version": "1.0.0", "orientation": "portrait", "plugins": ["expo-sqlite"] } }
+{
+  "expo": {
+    "name": "StockManager",
+    "slug": "stockmanager",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "plugins": [
+      "expo-sqlite",
+      "expo-asset",
+      "expo-font"
+    ]
+  }
+}
